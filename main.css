@@ -9,6 +9,7 @@
     box-sizing: border-box;
     font: 600 15px/1 sans-serif;
     transition: 300ms;
+    animation: fade .4s;
 }
 body {
     width: 100%;
@@ -26,6 +27,18 @@ p {
 strong {
     font-weight: 600;
 }
+@keyframes fade {
+    from {
+        transform: translateX(32px);
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
 
 .inicio-btn {
     background: #e74c3c;
@@ -35,7 +48,6 @@ strong {
     font-weight: 600;
     border-radius: 4px;
     margin: 0 24px;
-    display: none;
 }
 .inicio-btn.disabled {
     display: none;
@@ -44,6 +56,11 @@ strong {
 .container-quiz {
     max-width: 640px;
     width: 100%;
+    display: none;
+}
+
+.container-quiz.enabled {
+    display: block;
 }
 
 .container-quiz h1 {
@@ -85,7 +102,16 @@ strong {
     border-radius: 4px;
 }
 
+.container-quiz .buttons .nav.remove {
+    display: none;
+}
+
+.container-quiz .buttons .nav,
 .container-quiz .buttons .nav i {
     color: #fff;
     font-size: 24px;
+}
+
+.container-quiz .buttons .nav.fim-btn {
+    background: #e74c3c;
 }
